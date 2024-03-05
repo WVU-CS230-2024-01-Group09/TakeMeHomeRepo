@@ -1,0 +1,154 @@
+
+<body>
+    
+</body>
+<!DOCTYPE html>
+<html lang="en"></html>
+  <head>
+    <link rel="stylesheet" href="styles.css"> //change styles.css if necessary
+    <title>Welcome to Take Me Home, the unofficial WVU break ridesharing service. Please enter your login down below!</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .openBtn {
+        display: flex;
+        justify-content: left;
+      }
+      .openButton {
+        border: none;
+        border-radius: 5px;
+        background-color: #1c87c9;
+        color: white;
+        padding: 14px 20px;
+        cursor: pointer;
+        position: fixed;
+      }
+      .loginPopup {
+        position: relative;
+        text-align: center;
+        width: 100%;
+      }
+      .formPopup {
+        display: none;
+        position: fixed;
+        left: 45%;
+        top: 5%;
+        transform: translate(-50%, 5%);
+        border: 3px solid #999999;
+        z-index: 9;
+      }
+      .formContainer {
+        max-width: 300px;
+        padding: 20px;
+        background-color: #fff;
+      }
+      .formContainer input[type=text],
+      .formContainer input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 20px 0;
+        border: none;
+        background: #eee;
+      }
+      .formContainer input[type=text]:focus,
+      .formContainer input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+      .formContainer .btn {
+        padding: 12px 20px;
+        border: none;
+        background-color: #8ebf42;
+        color: #fff;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 15px;
+        opacity: 0.8;
+      }
+      .formContainer .cancel {
+        background-color: #cc0000;
+      }
+      .formContainer .btn:hover,
+      .openButton:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="PLACEHOLDER"></form>
+    <p>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+    </p>
+    <p>
+        <label for="password">Password:</label>
+        <input type="text" name="username" id="username">
+    </p>
+    <form action="https://sso.wvu.edu/cas/login?service=https%3A%2F%2Fecampus.wvu.edu%2Fwebapps%2Fbb-auth-provider-cas-BB5f107f082f849%2Fexecute%2FcasLogin%3Fcmd%3Dlogin%26authProviderId%3D_107_1%26redirectUrl%3Dhttps%253A%252F%252Fecampus.wvu.edu%252Fultra%26globalLogoutEnabled%3Dtrue">
+        <input type="submit" value="Sign with WVU" />
+    </form>
+    
+
+    <div class="forgotButton">
+      <button class="forgotButton" onclick="openForm()"><strong>Forgot login?</strong></button>
+    </div>
+    <div class="forgotPopup">
+      <div class="formPopup" id="popupForm">
+        <form action="/action_page.php" class="formContainer">
+          <h2>Forgot your login? Put in your email and a code will be sent to your account.</h2>
+          <label for="email">
+            <strong>E-mail</strong>
+          </label>
+          <input type="text" id="email" placeholder="Your Email" name="email" required>
+          <label for="code">
+            <strong>Code</strong>
+          </label>
+          <input type="code" id="code" placeholder="Your Code" name="code" required>
+          <button type="submit" class="btn">Log in</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      function openForm() {
+        document.getElementById("popupForm").style.display = "block";
+      }
+      function closeForm() {
+        document.getElementById("popupForm").style.display = "none";
+      }
+    </script>
+
+<div class="createButton">
+    <button class="createButton" onclick="openForm()"><strong>Create account</strong></button>
+  </div>
+  <div class="accountPopup">
+    <div class="createPopup" id="createForm">
+      <form action="/action_page.php" class="formContainer">
+        <h2>Please enter the fields for your account.</h2>
+        <label for="email">
+          <strong>E-mail</strong>
+        </label>
+        <input type="text" id="email" placeholder="Your Email" name="email" required>
+        <label for="username">
+          <strong>Username</strong>
+        </label>
+        <input type="username" id="username" placeholder="Your Username" name="username" required>
+        <label for="password">
+            <strong>Password</strong>
+          </label>
+          <input type="password" id="password" placeholder="Your Password" name="password" required>
+        <button type="submit" class="btn">Log in</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    function openForm() {
+      document.getElementById("createForm").style.display = "block";
+    }
+    function closeForm() {
+      document.getElementById("createForm").style.display = "none";
+    }
+  </script>
+  </body>
