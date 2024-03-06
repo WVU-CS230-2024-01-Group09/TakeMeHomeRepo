@@ -1,15 +1,15 @@
 import React from 'react';
-import './App.css'; // Make sure the path matches where your CSS file is located
+import './App.css'; // Importing the CSS file for styling
 
 function App() {
     return (
         <div className="App">
             <div className="bg"></div> {/* Background image */}
-            <div className="content"> {/* Content wrapper */}
+            <div className="content"> {/* Content container for centering */}
                 <div className="title">
                     <h1>Take Me Home Rideshare</h1>
                 </div>
-                <div className="container">
+                <div className="container"> {/* Login container */}
                     <h2>Welcome Mountaineers!</h2>
                     <h3>Log in:</h3>
                     <form id="loginForm">
@@ -26,6 +26,4 @@ function App() {
     );
 }
 
-
 export default App;
-
