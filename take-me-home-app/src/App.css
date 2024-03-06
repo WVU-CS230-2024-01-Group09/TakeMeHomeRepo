@@ -74,7 +74,10 @@ input[type="submit"] {
     margin-top: 20px;
     text-align: center;
 }
-
+.content {
+    position: absolute; /* Adjust as necessary */
+    z-index: 10; /* Ensure content is above the blurred background */
+}
     .links a {
         color: aliceblue;
         text-decoration: none;
