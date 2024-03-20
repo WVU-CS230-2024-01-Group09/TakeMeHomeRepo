@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Times New Roman', Times, serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.bg {
+    background-image: url('https://social.wvu.edu/files/5402f54b-285c-4b11-8d46-81007bf9ab0d/856x482?cb=9073b7ecee930f3a4d0184083b4a5fc6');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    z-index: 10;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+    max-width: 400px;
+    padding: 30px;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    background-color: midnightblue;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    color: aliceblue;
+    margin-top: 20px; /* Adjust space between title and container */
 }
 
-.App-link {
-  color: #61dafb;
+.title h1 {
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px; /* Add space above the title */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
 }
+
+input[type="submit"] {
+    background-color: #1da1f2;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+}
+
+    input[type="submit"]:hover {
+        background-color: #0d8bf9;
+    }
+
+.links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .links a {
+        color: aliceblue;
+        text-decoration: none;
+    }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
