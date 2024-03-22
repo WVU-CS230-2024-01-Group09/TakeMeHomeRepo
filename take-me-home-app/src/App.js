@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css'; // Importing the CSS file for styling
 import logo from './logo.svg';
 import './map.js';
+import DatabaseTest from './databasetest';
 
 function App() {
     return (
@@ -10,6 +11,7 @@ function App() {
             <div className="content"> {/* Content container for centering */}
                 <div className="title">
                     <h1>Take Me Home Rideshare</h1>
+                    <DatabaseTest />
                 </div>
                 <div className="container"> {/* Login container */}
                     <h2>Welcome Mountaineers!</h2>
