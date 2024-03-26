@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: lightgoldenrodyellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 30px;
+            border: 3px solid #ccc;
+            border-radius: 5px;
+            background-color: midnightblue;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            color: darkgoldenrod;
+        }
+
+        h2 {
+            text-align: center;
+            color: goldenrod; /*Add your ride offer */
+            font-size: 45px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+
+        input[type="submit"] {
+            background-color: #1da1f2;
+            color: aliceblue;
+            border: none;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0d8bf9;
+            }
+
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .links a {
+                color: aliceblue;
+                text-decoration: none;
+            }
+
+                .links a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add your offer</h2>
+        <h3> Fill out:</h3>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Name">
+            <input type="text" id="location" placeholder="Destination">
+            <input type="time" id="time" placeholder="Meeting Time">
+
+            <input type="submit" id="publishButton" value="Publish">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form submission
+            var backgroundColor = document.body.style.backgroundColor;
+            window.location.href = "ListingView.html?bgcolor=" + encodeURIComponent(backgroundColor);
+        });
+    </script>
+</body>
+</html>
