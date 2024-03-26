@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listing</title>
     <style>
+        /* CSS styles */
         body {
             font-family: 'Times New Roman', Times, serif;
             background-color: lightgoldenrodyellow;
@@ -13,20 +14,20 @@
             align-items: center;
             height: 100vh;
         }
-
-        .container {
-            max-width: 400px;
+        /* blue container (form)*/
+        .container { 
+            max-width: 600px;
             padding: 30px;
             border: 3px solid #ccc;
             border-radius: 5px;
             background-color: midnightblue;
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-            color: darkgoldenrod;
+            color: rgb(179, 171, 204);
         }
 
         h2 {
             text-align: center;
-            color: goldenrod; /*Add your ride offer */
+            color: goldenrod; /*"Add your ride offer" */
             font-size: 45px;
         }
 
@@ -38,7 +39,7 @@
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 3px;
-            box-sizing: border-box; /* Ensure padding is included in width */
+            box-sizing: border-box; 
         }
 
         input[type="submit"] {
@@ -49,7 +50,7 @@
         }
 
             input[type="submit"]:hover {
-                background-color: #0d8bf9;
+                background-color: #3495ea;
             }
 
         .links {
@@ -69,12 +70,20 @@
 </head>
 <body>
     <div class="container">
-        <h2>Add your offer</h2>
-        <h3> Fill out:</h3>
+        <h2>ADD YOUR RIDE OFFER</h2>
         <form id="loginForm">
-            <input type="text" id="username" placeholder="Name">
-            <input type="text" id="location" placeholder="Destination">
-            <input type="time" id="time" placeholder="Meeting Time">
+
+            <h5>Enter your Full Name:</h5>
+            <input type="text" id="name" placeholder="Name" required> <!-- Name -->
+
+            <h5>Enter the date of the trip: </h5>
+            <input type="date" id="tripDate" placeholder="Trip Date" required> <!-- Trip Date -->
+
+            <h5>Enter the meet-up time:</h5>
+            <input type="time" id="meetingTime" placeholder="Meeting Time" required> <!-- Meeting Time -->
+
+            <h5>Enter your trip destination: </h5>
+            <input type="text" id="destination" placeholder="Destination" required> <!-- Destination -->
 
             <input type="submit" id="publishButton" value="Publish">
         </form>
@@ -84,7 +93,7 @@
         document.getElementById("loginForm").addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent form submission
             var backgroundColor = document.body.style.backgroundColor;
-            window.location.href = "ListingView.html?bgcolor=" + encodeURIComponent(backgroundColor);
+            window.location.href = "ListingPublished.html?bgcolor=" + encodeURIComponent(backgroundColor);
         });
     </script>
 </body>
