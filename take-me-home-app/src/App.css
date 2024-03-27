@@ -1,6 +1,5 @@
 .bg {
     position: relative;
-    height: 100vh;
     overflow: hidden; /* Ensures the pseudo-element doesn't extend beyond this container */
     z-index: 1;
 }

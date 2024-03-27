@@ -11,7 +11,6 @@ function App() {
             <div className="content"> {/* Content container for centering */}
                 <div className="title">
                     <h1>Take Me Home Rideshare</h1>
-                    <DatabaseTest />
                 </div>
                 <div className="container"> {/* Login container */}
                     <h2>Welcome Mountaineers!</h2>
@@ -29,5 +28,8 @@ function App() {
         </div>
     );
 }
+
+
+
 
 export default App;
