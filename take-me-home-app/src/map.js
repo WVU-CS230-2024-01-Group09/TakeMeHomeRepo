@@ -34,7 +34,7 @@ async function initMap() {
 
 const MyApp = () => (
   <Wrapper apiKey={"AIzaSyBnqgu12a6mp8IJM1_8WzKD1tFszpvULHY"}>
-    <MyMapComponent />
+    <map />
   </Wrapper>
 );
 
