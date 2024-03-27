@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Page</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 2;
+        }
+
+        .content {
+            text-align: center;
+            padding: 20px;
+            border: 3px solid #ccc;
+            border-radius: 5px;
+            background-color: lightgoldenrodyellow; /* Default background color */
+            color: darkgoldenrod;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Done!</h1>
+        <p>You have successfully published your  ride offer, check the listing view.</p>
+    </div>
+
+    <script>
+        // get query parameters from URL
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Get the background color from the query parameter
+        var bgColor = getParameterByName('bgcolor');
+
+        // Apply the background color
+        if (bgColor) {
+            document.body.style.backgroundColor = bgColor;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: lightgoldenrodyellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        /* blue container (form)*/
+        .container { 
+            max-width: 600px;
+            padding: 30px;
+            border: 3px solid #ccc;
+            border-radius: 5px;
+            background-color: midnightblue;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            color: rgb(179, 171, 204);
+        }
+
+        h2 {
+            text-align: center;
+            color: goldenrod; /*"Add your ride offer" */
+            font-size: 45px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box; 
+        }
+
+        input[type="submit"] {
+            background-color: #1da1f2;
+            color: aliceblue;
+            border: none;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #3495ea;
+            }
+
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .links a {
+                color: aliceblue;
+                text-decoration: none;
+            }
+
+                .links a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ADD YOUR RIDE OFFER</h2>
+        <form id="loginForm">
+
+            <h5>Enter your Full Name:</h5>
+            <input type="text" id="name" placeholder="Name" required> <!-- Name -->
+
+            <h5>Enter the date of the trip: </h5>
+            <input type="date" id="tripDate" placeholder="Trip Date" required> <!-- Trip Date -->
+
+            <h5>Enter the meet-up time:</h5>
+            <input type="time" id="meetingTime" placeholder="Meeting Time" required> <!-- Meeting Time -->
+
+            <h5>Enter your trip destination: </h5>
+            <input type="text" id="destination" placeholder="Destination" required> <!-- Destination -->
+
+            <input type="submit" id="publishButton" value="Publish">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form submission
+            var backgroundColor = document.body.style.backgroundColor;
+            window.location.href = "ListingPublished.html?bgcolor=" + encodeURIComponent(backgroundColor);
+        });
+    </script>
+</body>
+</html>
