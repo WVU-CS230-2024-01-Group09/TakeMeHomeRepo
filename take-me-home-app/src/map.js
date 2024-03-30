@@ -23,14 +23,14 @@ import { Wrapper } from "@googlemaps/react-wrapper";
 
    let map;
 
-async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
+// async function initMap() {
+//   const { Map } = await google.maps.importLibrary("maps");
 
-  map = new Map(document.getElementById("map"), {
-    center: { lat: 39.635058, lng: -79.954278 },
-    zoom: 8,
-  });
-}
+//   map = new Map(document.getElementById("map"), {
+//     center: { lat: 39.635058, lng: -79.954278 },
+//     zoom: 8,
+//   });
+// }
 
 const MyApp = () => (
   <Wrapper apiKey={"AIzaSyBnqgu12a6mp8IJM1_8WzKD1tFszpvULHY"}>
@@ -38,4 +38,4 @@ const MyApp = () => (
   </Wrapper>
 );
 
-initMap(); 
+// initMap(); 
