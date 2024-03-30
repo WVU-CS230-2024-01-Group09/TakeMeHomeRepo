@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css'; // Importing the CSS file for styling
-import logo from './logo.svg';
-import './map.js';
+// import logo from './logo.svg';
+// import './map.js';
 import DatabaseTest from './databasetest';
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ function App() {
             <div className="content"> {/* Content container for centering */}
                 <div className="title">
                     <h1>Take Me Home Rideshare</h1>
-                    <Link to="/map">Map</Link>
+                    {/* <Link to="/map">Map</Link> */}
                 </div>
                 <div className="container"> {/* Login container */}
                     <h2>Welcome Mountaineers!</h2>
