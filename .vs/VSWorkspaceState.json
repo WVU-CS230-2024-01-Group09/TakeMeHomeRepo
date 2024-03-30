@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\public",
     "\\take-me-home-app",
+    "\\take-me-home-app\\public",
     "\\take-me-home-app\\src"
   ],
-  "SelectedNode": "\\take-me-home-app\\src\\CreateAccountServer.js",
+  "SelectedNode": "\\take-me-home-app\\src\\index.js",
   "PreviewInSolutionExplorer": false
 }
