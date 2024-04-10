@@ -87,14 +87,41 @@
 
             <h5>Enter your trip destination: </h5>
             <input type="text" id="destination" placeholder="Destination" required> <!-- Destination -->
+            <h5>How many seats are available in your car?</h5>
+            <select id="seats" required>
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+
+            <h5>Is smoking allowed in your car?</h5>
+            <select id="smoking" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <h5>Type of car:</h5>
+            <input type="text" id="carType" placeholder="Type of car">
+
+            <h5>Do you have any notes to add?</h5>
+            <textarea id="notes" placeholder="Enter notes"></textarea>
 
             <input type="submit" id="publishButton" value="Publish">
         </form>
     </div>
 
+    <div class="links">
+        <a href="ListingHandler.html">Add New Offer</a>
+    </div>
+
     <script>
         document.getElementById("loginForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent form submission
+            event.preventDefault(); // Prevent form submission if required fields not filled
             var backgroundColor = document.body.style.backgroundColor;
             window.location.href = "ListingPublished.html?bgcolor=" + encodeURIComponent(backgroundColor);
         });
@@ -103,10 +130,10 @@
         document.addEventListener("DOMContentLoaded", function () {
             const today = new Date();
             const year = today.getFullYear();
-            let month = today.getMonth() + 1; // JavaScript months are zero-based
+            let month = today.getMonth() + 1; // since JavaScript months are zero-based
             let day = today.getDate();
     
-            // Add leading zero if month/day is less than 10
+            // Add  zero if month/day is less than 10 e.g. 03/02
             if (month < 10) {
                 month = '0' + month;
             }

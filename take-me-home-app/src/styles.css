@@ -14,7 +14,7 @@
 .listings{
     display:flex;
     gap: 15px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .listing{
@@ -28,7 +28,7 @@
 .viewButton{
     border: none;
     padding: 10px;
-    background-color: rgb(255, 238, 145);
+    background-color: lightgoldenrodyellow;
     color: rgb(0, 0, 46);
     font-weight: bold;
     cursor: pointer;

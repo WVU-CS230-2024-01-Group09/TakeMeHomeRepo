@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: lightgoldenrodyellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        /* blue container (form)*/
+        .container { 
+            max-width: 600px;
+            padding: 30px;
+            border: 3px solid #ccc;
+            border-radius: 5px;
+            background-color: midnightblue;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            color: rgb(179, 171, 204);
+        }
+
+        h2 {
+            text-align: center;
+            color: goldenrod; /*"Add your ride offer" */
+            font-size: 45px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box; 
+        }
+
+        input[type="submit"] {
+            background-color: #1da1f2;
+            color: aliceblue;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3495ea;
+        }
+
+        .links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .links a {
+            color: aliceblue;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        /* New styles for listing view */
+        .offer {
+            background-color: midnightblue;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .offer h3 {
+            color: goldenrod;
+        }
+
+        .offer p {
+            color: white;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>LISTING VIEW</h2>
+        
+        <!-- Listing of offers -->
+        <div class="offer">
+            <h3>Offer 1</h3>
+            <p><strong>Name:</strong> Mike </p>
+            <p><strong>Date:</strong> 2024-07-04</p>
+            <p><strong>Location:</strong> New York</p>
+            <p><strong>Time:</strong> 07:00 AM</p>
+            <p><strong>Destination:</strong> Los Angeles</p>
+        </div>
+        <div class="offer">
+            <h3>Offer 2</h3>
+            <p><strong>Name:</strong> Nada Mikky</p>
+            <p><strong>Date:</strong> 2024-04-05</p>
+            <p><strong>Location:</strong> Towers</p>
+            <p><strong>Time:</strong> 09:00 AM</p>
+            <p><strong>Destination:</strong> Pittsburgh</p>
+        </div>
+
+        <!-- End of listing -->
+
+        <div class="links">
+            <a href="ListingHandler.html">Add New Offer</a>
+        </div>
+    </div>
+</body>
+</html>
