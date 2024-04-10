@@ -13,6 +13,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            padding: 20px;
         }
         /* blue container (form)*/
         .container { 
@@ -23,13 +24,18 @@
             background-color: midnightblue;
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
             color: rgb(179, 171, 204);
+            margin: auto;
         }
 
         h2 {
             text-align: center;
             color: goldenrod; /*"Add your ride offer" */
-            font-size: 45px;
+            font-size: 40px;
         }
+        h5 {
+            margin-top: 15px; /* Added margin between input fields */
+        }
+
 
         input[type="text"],
         input[type="password"],
@@ -76,17 +82,18 @@
             <h5>Enter your Full Name:</h5>
             <input type="text" id="name" placeholder="Name" required> <!-- Name -->
 
-            <h5>Enter the date of the trip: </h5>
+            <h5>Date of the trip: </h5>
             <input type="date" id="tripDate" placeholder="Trip Date" required> <!-- Trip Date -->
 
-            <h5>Enter the meet-up location: </h5>
-            <input type="text" id="destination" placeholder="Location" required> <!-- Location -->
+            <h5>Trip destination: </h5>
+            <input type="text" id="destination" placeholder="Destination" required> <!-- Destination -->
 
             <h5>Enter the meet-up time:</h5>
             <input type="time" id="meetingTime" placeholder="Meeting Time" required> <!-- Meeting Time -->
 
-            <h5>Enter your trip destination: </h5>
+            <h5>Meet-up Location: </h5>
             <input type="text" id="destination" placeholder="Destination" required> <!-- Destination -->
+
             <h5>How many seats are available in your car?</h5>
             <select id="seats" required>
                 <option value="">Select</option>
@@ -115,36 +122,12 @@
         </form>
     </div>
 
-    <div class="links">
-        <a href="ListingHandler.html">Add New Offer</a>
-    </div>
-
     <script>
         document.getElementById("loginForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent form submission if required fields not filled
+            event.preventDefault(); // Prevent form submission
             var backgroundColor = document.body.style.backgroundColor;
             window.location.href = "ListingPublished.html?bgcolor=" + encodeURIComponent(backgroundColor);
         });
     </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const today = new Date();
-            const year = today.getFullYear();
-            let month = today.getMonth() + 1; // since JavaScript months are zero-based
-            let day = today.getDate();
-    
-            // Add  zero if month/day is less than 10 e.g. 03/02
-            if (month < 10) {
-                month = '0' + month;
-            }
-            if (day < 10) {
-                day = '0' + day;
-            }
-    
-            const currentDate = year + '-' + month + '-' + day;
-            document.getElementById('tripDate').setAttribute('min', currentDate);
-        });
-    </script>
-    
 </body>
 </html>
