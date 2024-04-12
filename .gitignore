@@ -103,3 +103,15 @@ node_modules/
 /.vs/TakeMeHomeRepo/FileContentIndex/b3471775-98fe-4039-b612-34c9f81ea1e4.vsidx
 /.vs/TakeMeHomeRepo/FileContentIndex/dcfa1949-45f5-4cf1-88ef-83c3eb9b91a7.vsidx
 /.vs/TakeMeHomeRepo/FileContentIndex/fcdfb68c-4cba-4a95-9b69-cdec7f05c37b.vsidx
+/take-me-home-app/src/useAuth.js
+/take-me-home-app/src/CreateAccount2.js
+/take-me-home-app/src/ForgotPassword.js
+/take-me-home-app/src/HomePage.js
+/take-me-home-app/src/Login.js
+*.css
+/take-me-home-app/src/PlaceholderPage.js
+/take-me-home-app/src/App.js
+/.vs/TakeMeHomeRepo/FileContentIndex/b041248b-4b07-4eeb-a85b-6bc873657e04.vsidx
+/.gitignore
+/.vs/TakeMeHomeRepo/FileContentIndex/638ac050-5be3-4aa7-ae9d-282d426ca298.vsidx
+/.gitignore
