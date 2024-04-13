@@ -33,7 +33,7 @@
             font-size: 40px;
         }
         h5 {
-            margin-top: 15px; /* Added margin between input fields */
+            margin-top: 15px; 
         }
 
 
@@ -96,6 +96,7 @@
 
             <h5>How many seats are available in your car?</h5>
             <select id="seats" required>
+                <!-- This is to limit the amount of seats to be max of 6, realistically-->
                 <option value="">Select</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -126,6 +127,7 @@
         document.getElementById("loginForm").addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent form submission
             var backgroundColor = document.body.style.backgroundColor;
+            //When "publish" is clicked, user will recieve a Confirmation Message on the screen
             window.location.href = "ListingPublished.html?bgcolor=" + encodeURIComponent(backgroundColor);
         });
     </script>
