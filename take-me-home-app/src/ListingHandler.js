@@ -28,7 +28,26 @@ document.addEventListener("DOMContentLoaded", function () {
         form.reset();
     });
 
+    document.addEventListener("DOMContentLoaded", function () {
+        const today = new Date();
+        const year = today.getFullYear();
+        let month = today.getMonth() + 1; // JavaScript months are zero-based
+        let day = today.getDate();
+
+        // Add leading zero if month/day is less than 10
+        if (month < 10) {
+            month = '0' + month;
+        }
+        if (day < 10) {
+            day = '0' + day;
+        }
+
+        const currentDate = year + '-' + month + '-' + day;
+        document.getElementById('tripDate').setAttribute('min', currentDate);
+    });
+
     function handleOfferSubmission(offer) {
         console.log("Offer Submitted:", offer);
     }
 });
+
