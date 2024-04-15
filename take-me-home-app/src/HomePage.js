@@ -4,7 +4,7 @@ import './styles.css'; // Importing the CSS file for styling
 import './map.js';
 import './map.html';
 import './ListingHandler.js';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 function HomePage() {
     return (
