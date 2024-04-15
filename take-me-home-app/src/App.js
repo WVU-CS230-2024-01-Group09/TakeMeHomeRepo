@@ -5,6 +5,8 @@ import './map.js';
 import DatabaseTest from './databasetest';
 // import { Link } from 'react-router-dom'; // FOR SOME REASON USING THIS BREAKS THE SITE
 
+<Route exact path="/home" component={HomePage} /> // this is what lets you type /home into the browser to navigate to the page
+
 
 function App() {
     return (
