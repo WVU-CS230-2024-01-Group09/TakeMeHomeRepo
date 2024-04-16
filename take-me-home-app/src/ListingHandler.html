@@ -124,12 +124,20 @@
     </div>
 
     <script>
-        document.getElementById("loginForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent form submission
-            var backgroundColor = document.body.style.backgroundColor;
-            //When "publish" is clicked, user will recieve a Confirmation Message on the screen
-            window.location.href = "ListingPublished.html?bgcolor=" + encodeURIComponent(backgroundColor);
+        document.addEventListener("DOMContentLoaded", function () {
+            var loginForm = document.getElementById("loginForm");
+            if (loginForm) {
+                loginForm.addEventListener("submit", function (event) {
+                    event.preventDefault(); // Prevent form submission
+                    var backgroundColor = document.body.style.backgroundColor;
+                    // When "publish" is clicked, user will receive a Confirmation Message on the screen
+                    window.location.href = "ListingPublished.html?bgcolor=" + encodeURIComponent(backgroundColor);
+                });
+            } else {
+                console.log('loginForm not found');
+            }
         });
     </script>
+
 </body>
 </html>

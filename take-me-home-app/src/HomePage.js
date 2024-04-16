@@ -2,7 +2,7 @@
 import React from 'react';
 import './styles.css'; // Importing the CSS file for styling
 import './map.js';
-import './map.html';
+//import './map.html';
 import './ListingHandler.js';
 import { Link } from 'react-router-dom';
 import './AuthForm.css';
