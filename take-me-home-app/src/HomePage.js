@@ -1,24 +1,23 @@
-// HomePage.js
 import React from 'react';
 import './styles.css'; // Importing the CSS file for styling
-import './map.js';
-//import './map.html';
-import './ListingHandler.js';
 import { Link } from 'react-router-dom';
-import './AuthForm.css';
+import './AuthForm.css'; // Ensure this file contains styles applicable to the components used here
 
 function HomePage() {
     return (
-        <div className="auth-form-container"> {/* Same class for consistent background styling */}
-            <div className="auth-form"> {/* Blue box styling */}
+        <div className="auth-form-container"> {/* Reusing styles for layout consistency */}
+            <div className="auth-form"> {/* Reusing the blue box style */}
                 <h1>Welcome to the Home Page!</h1>
                 <h3>About:</h3>
-                <p>Take Me Home is a rideshare service created with the purpose of providing students at West Virginia University a means to get or provide a ride home for break.</p>
+                <p>Take Me Home is a rideshare service created to provide students at West Virginia University a means to get or provide a ride home for break.</p>
                 <Link to="/add-listing" style={{ textDecoration: 'none' }}>
                     <button>Add Listing</button>
                 </Link>
                 <Link to="/view-map" style={{ textDecoration: 'none' }}>
                     <button>View Map</button>
+                </Link>
+                <Link to="/view-listings" style={{ textDecoration: 'none' }}> {/* Add the new button for viewing listings */}
+                    <button>View Listings</button>
                 </Link>
             </div>
         </div>
@@ -26,3 +25,4 @@ function HomePage() {
 }
 
 export default HomePage;
+

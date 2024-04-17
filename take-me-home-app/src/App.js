@@ -7,6 +7,7 @@ import CreateAccount2 from './CreateAccount2';
 import PlaceholderPage from './PlaceholderPage'; // Import the PlaceholderPage component
 import { ProvideAuth } from './useAuth';
 import AddListing from './AddListing';
+import ViewListings from './ViewListings'; 
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/create-account" element={<CreateAccount2 />} />
                     <Route path="/add-listing" element={<AddListing />} /> {/* Placeholder route for Add Listing */}
                     <Route path="/view-map" element={<PlaceholderPage title="View Map" />} /> {/* Placeholder route for View Map */}
+                    <Route path="/view-listings" element={<ViewListings />} />
                 </Routes>
             </Router>
         </ProvideAuth>
