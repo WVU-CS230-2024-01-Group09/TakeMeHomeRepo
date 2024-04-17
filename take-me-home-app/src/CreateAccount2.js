@@ -14,7 +14,7 @@ function CreateAccount2() {
 
         // Validate that the email includes 'wvu' after the '@'
         if (!email.includes('@mix.wvu')) {
-            alert('Please enter a valid WVU email address (yourname@wvu.com)');
+            alert('Please enter a valid WVU email address ');
             return; // Stop the form submission if validation fails
         }
 
