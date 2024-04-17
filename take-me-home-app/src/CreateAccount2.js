@@ -11,9 +11,17 @@ function CreateAccount2() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validate that the email includes 'wvu' after the '@'
+        if (!email.includes('@mix.wvu')) {
+            alert('Please enter a valid WVU email address (yourname@wvu.com)');
+            return; // Stop the form submission if validation fails
+        }
+
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                navigate('/home');  // Redirect to the homepage upon successful account creation
+                // Redirect to the homepage upon successful account creation
+                navigate('/home');
             })
             .catch((error) => {
                 console.error('Error creating account:', error);
@@ -35,7 +43,7 @@ function CreateAccount2() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email"
+                    placeholder="Email (must be a WVU email)"
                     required
                     style={inputStyle}  // Apply inline styles here
                 />
