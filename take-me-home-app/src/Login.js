@@ -6,7 +6,7 @@ import DatabaseTest from './databasetest';
 
 function Login() {
     const navigate = useNavigate();
-    const { signIn } = useAuth();
+    const { signIn, user } = useAuth(); // Access the user object from useAuth
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -21,6 +21,8 @@ function Login() {
         e.preventDefault();
         try {
             await signIn(email, password);
+            // Store user ID in local storage upon successful login
+            localStorage.setItem('userId', user.uid); // Assuming user object contains UID
             navigate('/home'); // Navigate on success
         } catch (error) {
             // Display an alert if login is unsuccessful
