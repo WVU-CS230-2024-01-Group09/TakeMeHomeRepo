@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { db } from './firebaseConfig';
+import { doc, setDoc } from 'firebase/firestore';
 import './AuthForm.css';
 
 function CreateAccount2() {
@@ -19,7 +21,13 @@ function CreateAccount2() {
         }
 
         createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+            .then(async (userCredential) => {
+                const user = userCredential.user;
+                // Create a document in Firebase to store the new user's information that is displayed in AccountPage.js
+                await setDoc(doc(db, 'users', user.uid), {
+                    email: email,
+                    // add other information to the document if necessary
+                  });
                 // Redirect to the homepage upon successful account creation
                 navigate('/home');
             })
@@ -55,6 +63,7 @@ function CreateAccount2() {
                     required
                     style={inputStyle}  // Apply inline styles here
                 />
+                <h1>Password must be at least 6 characters long.</h1>
                 <button type="submit">Create Account</button>
             </form>
         </div>
