@@ -125,15 +125,18 @@ function ViewListings() {
     );
 }
 
+
+
 const containerStyle = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     maxWidth: '100%',
     height: '100%',
-    padding: '30px',
+    padding: '40px',
     color: 'rgb(179, 171, 204)',
     position: 'relative', // Ensure relative positioning
+    backgroundImage: 'url(https://wallpapercave.com/wp/wp2912980.jpg)',
 };
 
 const listContainerStyle = {
@@ -142,25 +145,26 @@ const listContainerStyle = {
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     overflowY: 'auto', // Enable vertical scrolling
-    maxHeight: 'calc(100vh - 300px)', // Adjust maximum height
+    maxHeight: 'calc(100vh - 100px)', // Adjust maximum height
 };
 
 const listItemStyle = {
-    width: 'calc(25% - 20px)', // Adjust width to fit 4 items in a row
+    width: 'calc(25%)', 
     margin: '20px',
     padding: '20px',
-    backgroundColor: 'aliceblue',
+    backgroundColor: '#00112b',
     borderRadius: '5px',
     flexDirection: 'column',
+    color: '#fffc4a',
 };
 
 const viewButtonStyle = {
     padding: '8px 12px',
-    backgroundColor: '#1da1f2',
+    backgroundColor: '#405aa1',
     borderRadius: '3px',
     cursor: 'pointer',
     border: 'none',
-    color: 'aliceblue',
+    color: 'white',
     marginTop: '10px',
 };
 
@@ -186,6 +190,8 @@ const listStyle = {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
+    marginLeft: 'auto',
+    marginRight: 'auto',
 };
 const linkStyle = {
     textDecoration: 'none',
@@ -216,7 +222,7 @@ const closeButtonStyle = {
     top: '10px',
     right: '10px',
     padding: '5px',
-    backgroundColor: '#1da1f2',
+    backgroundColor: '#405aa1',
     borderRadius: '50%',
     cursor: 'pointer',
     border: 'none',
@@ -227,7 +233,7 @@ const saveButtonStyle = {
     width: '100%',
     padding: '10px',
     borderRadius: '3px',
-    backgroundColor: '#1da1f2',
+    backgroundColor: '#405aa1',
     color: 'aliceblue',
     border: 'none',
     cursor: 'pointer',
