@@ -63,7 +63,7 @@ function CreateAccount2() {
                     required
                     style={inputStyle}  // Apply inline styles here
                 />
-                <h1>Password must be at least 6 characters long.</h1>
+                <h4>Password must be at least 6 characters long.</h4>
                 <button type="submit">Create Account</button>
             </form>
         </div>
