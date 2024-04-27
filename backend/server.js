@@ -2,6 +2,8 @@ const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
 
+
+
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -22,6 +24,32 @@ app.get('/data', (req, res) => {
       res.json(results);
     }
   });
+});
+
+// Delete endpoint for deleting a listing from the backend as this is where they're stored.
+app.delete('/listings/:id', async (req, res) => {
+
+  const id = req.params.id;
+
+  try {
+    // establish a connection
+    const connection = await pool.getConnection();
+
+    // Get the listing ID.
+    await connection.execute('DELETE FROM listings WHERE id = ?', [id]);
+
+    connection.release();
+
+    // Report an update.
+    res.status(200).send('Listing deleted successfully');
+
+  } catch (error) {
+
+    // Catch any errors.
+    console.error('Error deleting listing:', error);
+
+    res.status(500).send('Internal Server Error');
+  }
 });
 
 const port = process.env.PORT || 5000;
