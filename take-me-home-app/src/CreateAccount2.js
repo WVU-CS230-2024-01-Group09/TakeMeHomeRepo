@@ -8,6 +8,9 @@ import './AuthForm.css';
 function CreateAccount2() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [preferences, setPreferences] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
     const navigate = useNavigate();
     const auth = getAuth();
 
@@ -26,7 +29,9 @@ function CreateAccount2() {
                 // Create a document in Firebase to store the new user's information that is displayed in AccountPage.js
                 await setDoc(doc(db, 'users', user.uid), {
                     email: email,
-                    // add other information to the document if necessary
+                    name: name,
+                    preferences: preferences,
+                    phoneNumber: phoneNumber,
                   });
                 // Redirect to the homepage upon successful account creation
                 navigate('/home');
@@ -41,7 +46,13 @@ function CreateAccount2() {
     const inputStyle = {
         backgroundColor: 'white',
         color: '#000',
-        boxShadow: '0 0 0px 1000px white inset'
+        boxShadow: '0 0 0px 1000px white inset',
+        width: '100%',
+        padding: '10px',
+        marginBottom: '10px',
+        border: '1px solid #ccc',
+        borderRadius: '4px',
+        boxSizing: 'border-box',
     };
 
     return (
@@ -61,6 +72,26 @@ function CreateAccount2() {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                     required
+                    style={inputStyle}  // Apply inline styles here
+                />
+                <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Name"
+                    style={inputStyle}  // Apply inline styles here
+                />
+                <textarea
+                    value={preferences}
+                    onChange={(e) => setPreferences(e.target.value)}
+                    placeholder="Preferences (optional)"
+                    style={inputStyle}  // Apply inline styles here
+                ></textarea>
+                <input
+                    type="tel"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    placeholder="Phone Number (optional)"
                     style={inputStyle}  // Apply inline styles here
                 />
                 <h4>Password must be at least 6 characters long.</h4>

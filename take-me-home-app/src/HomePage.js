@@ -19,6 +19,9 @@ function HomePage() {
                 <Link to="/view-listings" style={{ textDecoration: 'none' }}> {/* Add the new button for viewing listings */}
                     <button>View Listings</button>
                 </Link>
+                <Link to="/account-page" style={{ textDecoration: 'none' }}>
+                    <button>View Account</button>
+                </Link>
             </div>
         </div>
     );
