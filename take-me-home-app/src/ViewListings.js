@@ -146,6 +146,7 @@ const listContainerStyle = {
     justifyContent: 'space-between',
     overflowY: 'auto', // Enable vertical scrolling
     maxHeight: 'calc(100vh - 100px)', // Adjust maximum height
+    
 };
 
 const listItemStyle = {
@@ -156,6 +157,7 @@ const listItemStyle = {
     borderRadius: '5px',
     flexDirection: 'column',
     color: '#fffc4a',
+    
 };
 
 const viewButtonStyle = {
@@ -185,6 +187,7 @@ const buttonContainerStyle = {
     bottom: '30px',
     width: '100%',
 };
+
 const listStyle = {
     display: 'flex',
     flexDirection: 'row',
@@ -193,6 +196,7 @@ const listStyle = {
     marginLeft: 'auto',
     marginRight: 'auto',
 };
+
 const linkStyle = {
     textDecoration: 'none',
     color: 'aliceblue',
