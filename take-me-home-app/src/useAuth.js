@@ -1,13 +1,13 @@
 import React, { useContext, createContext, useState } from 'react';
-import { auth } from './firebaseConfig'; // Ensure this imports your Firebase auth configuration correctly
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from './firebaseConfig'; // Ensure correct import of your Firebase auth configuration
+import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 
 const authContext = createContext();
 
 function useProvideAuth() {
     const [user, setUser] = useState(null);
 
-    // Updated signIn function to use Firebase authentication
+    // Existing signIn function using Firebase authentication
     const signIn = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
             .then((response) => {
@@ -16,14 +16,30 @@ function useProvideAuth() {
             }).catch(error => {
                 // Optionally, handle errors here such as updating state to show an error message
                 console.error("Authentication error:", error);
-                throw error; // Rethrow the error so you can catch it where signIn is called
+                throw error; // Rethrow the error so it can be caught and handled where signIn is called
             });
     };
 
-    // Return the user object and auth methods
+    // Method to trigger password reset email
+    const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email)
+            .then(() => {
+                // Password reset email sent
+                console.log("Password reset email sent.");
+                // You might want to return some success message or perform other actions here
+            })
+            .catch(error => {
+                // Handle errors in sending the password reset email
+                console.error("Error sending password reset email:", error);
+                throw error; // It allows catching this error in the component that called resetPassword
+            });
+    };
+
+    // Return the user object, signIn and resetPassword methods
     return {
         user,
         signIn,
+        resetPassword, // Include resetPassword in the returned object
     };
 }
 
@@ -35,4 +51,3 @@ export function ProvideAuth({ children }) {
 export const useAuth = () => {
     return useContext(authContext);
 };
-

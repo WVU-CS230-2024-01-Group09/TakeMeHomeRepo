@@ -1,41 +1,66 @@
-// Login.js
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-// Assuming useAuth is correctly set up for this example
-import { useAuth } from './useAuth';
-import './App.css';
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from './useAuth'; // Ensure this path is correct
+import './App.css'; // Assuming your CSS file is named App.css
+import DatabaseTest from './databasetest';
+
 function Login() {
     const navigate = useNavigate();
-    const { signIn } = useAuth();
+    const { signIn, user } = useAuth(); // Access the user object from useAuth
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    // Inline CSS to override Chrome's autofill styles
+    const inputStyle = {
+        backgroundColor: 'white',
+        color: '#000',
+        boxShadow: '0 0 0px 1000px white inset'
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-
         try {
             await signIn(email, password);
+            // Store user ID in local storage upon successful login
+            localStorage.setItem('userId', user.uid); // Assuming user object contains UID
             navigate('/home'); // Navigate on success
         } catch (error) {
-            // Handle login failure
+            // Display an alert if login is unsuccessful
+            alert('Incorrect email or password.');
             console.error(error.message);
         }
     };
 
     return (
-        <div className="bg"> {/* Background image */}
-            <div className="content"> {/* Centers the login form */}
-                <div className="container"> {/* The blue box */}
+        <div className="bg">
+            <div className="content">
+                <div className="container">
                     <div className="title">
-                        <h1>Login</h1> {/* Title inside the blue box */}
+                        <h1>Login</h1>
                     </div>
                     <form onSubmit={handleSubmit}>
-                        <input type="email" name="email" placeholder="Email" required />
-                        <input type="password" name="password" placeholder="Password" required />
+                        <input
+                            type="email"
+                            name="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Email"
+                            required
+                            style={inputStyle}  // Apply inline styles here
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Password"
+                            required
+                            style={inputStyle}  // Apply inline styles here
+                        />
                         <input type="submit" value="Log in" />
                     </form>
                     <div className="links">
-                        <a href="www.google.com">Forgot password?</a> &mdash; <a href="www.google.com">Sign up</a>
+                        <Link to="/forgot-password">Forgot Password?</Link> &mdash; <Link to="/create-account">Sign up</Link>
                     </div>
                 </div>
             </div>
@@ -44,4 +69,3 @@ function Login() {
 }
 
 export default Login;
-

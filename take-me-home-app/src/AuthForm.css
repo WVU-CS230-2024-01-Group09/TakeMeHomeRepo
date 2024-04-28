@@ -1,0 +1,41 @@
+.auth-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Use min-height to ensure it covers the entire viewport */
+    background-image: url('https://social.wvu.edu/files/5402f54b-285c-4b11-8d46-81007bf9ab0d/856x482?cb=9073b7ecee930f3a4d0184083b4a5fc6');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.auth-form {
+    background-color: rgba(255, 255, 255, 0.9); /* Increase opacity for better readability */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Enhance shadow for better visibility */
+    width: 100%;
+    max-width: 350px; /* Set a max-width for larger screens */
+    display: flex;
+    flex-direction: column;
+}
+
+    .auth-form input,
+    .auth-form button {
+        width: 100%;
+        margin-bottom: 15px; /* Increase space for better visual separation */
+        padding: 12px; /* Increase padding for better usability */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .auth-form button {
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s; /* Smooth transition for hover effect */
+    }
+
+        .auth-form button:hover {
+            background-color: #0056b3;
+        }
