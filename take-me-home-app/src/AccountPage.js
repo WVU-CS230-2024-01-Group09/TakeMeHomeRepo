@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './styles.css'; // Importing the CSS file for styling
+import './AuthForm.css';
 import { useAuth } from './useAuth';
 import { db } from './firebaseConfig';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
@@ -62,45 +63,47 @@ function AccountPage() {
   };
 
   return (
-    <div>
-      <h1>Account Page</h1>
-      {userData ? (
-        <div>
-          <p>Email: {userData.email}</p>
-          {editing ? (
-            <>
-              <input
-                type="text"
-                value={editedName}
-                onChange={(e) => setEditedName(e.target.value)}
-                placeholder="Name"
-              />
-              <textarea
-                value={editedPreferences}
-                onChange={(e) => setEditedPreferences(e.target.value)}
-                placeholder="Preferences"
-              ></textarea>
-              <input
-                type="tel"
-                value={editedPhoneNumber}
-                onChange={(e) => setEditedPhoneNumber(e.target.value)}
-                placeholder="Phone Number"
-              />
-              <button onClick={handleSave}>Save</button>
-            </>
-          ) : (
-            <>
-              <p>Name: {userData.name}</p>
-              <p>Preferences: {userData.preferences}</p>
-              <p>Phone Number: {userData.phoneNumber}</p>
-              <button onClick={() => setEditing(true)}>Edit</button>
-            </>
-          )}
-          <button onClick={handleLogout}>Log Out</button>
-        </div>
-      ) : (
-        <p>Loading user data...</p>
-      )}
+    <div className="auth-form-container"> {/* Reusing styles for layout consistency */}
+      <div className="auth-form"> {/* Reusing the blue box style */}
+        <h1>Account Page</h1>
+        {userData ? (
+          <div>
+            <p>Email: {userData.email}</p>
+            {editing ? (
+              <>
+                <input
+                  type="text"
+                  value={editedName}
+                  onChange={(e) => setEditedName(e.target.value)}
+                  placeholder="Name"
+                />
+                <textarea
+                  value={editedPreferences}
+                  onChange={(e) => setEditedPreferences(e.target.value)}
+                  placeholder="Preferences"
+                ></textarea>
+                <input
+                  type="tel"
+                  value={editedPhoneNumber}
+                  onChange={(e) => setEditedPhoneNumber(e.target.value)}
+                  placeholder="Phone Number"
+                />
+                <button onClick={handleSave}>Save</button>
+              </>
+            ) : (
+              <>
+                <p>Name: {userData.name}</p>
+                <p>Preferences: {userData.preferences}</p>
+                <p>Phone Number: {userData.phoneNumber}</p>
+                <button onClick={() => setEditing(true)}>Edit</button>
+              </>
+            )}
+            <button onClick={handleLogout}>Log Out</button>
+          </div>
+        ) : (
+          <p>Loading user data...</p>
+        )}
+      </div>
     </div>
   );
 }
