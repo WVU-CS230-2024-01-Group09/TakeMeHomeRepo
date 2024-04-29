@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from './firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
@@ -15,9 +15,40 @@ function AddListing() {
     const [carType, setCarType] = useState('');
     const [notes, setNotes] = useState('');
 
+    useEffect(() => {
+        setMinDate();
+    }, []);
+
+    const setMinDate = () => {
+        var today = new Date();
+        today.setDate(today.getDate()); // Today's date
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; // January is 0!
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+          dd = '0' + dd;
+        }
+        if (mm < 10) {
+          mm = '0' + mm;
+        }
+        today = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("tripDate").setAttribute("min", today);
+    };
+
     const handleSubmit = async (event) => {
-        console.log("Form submitted");
         event.preventDefault();
+        var selectedDate = document.getElementById("tripDate").value;
+        var today = new Date();
+        today.setHours(0, 0, 0, 0); // Set hours to 0 for accurate comparison
+        var tripDate = new Date(selectedDate);
+    
+        // Check if the selected date is in the future
+        if (tripDate <= today) {
+          alert("Please select a date in the future.");
+          return;
+        }
+
+        console.log("Form submitted");
         const offer = {
             name,
             tripDate,
@@ -93,12 +124,20 @@ function AddListing() {
         gridColumn: '1 / span 2',
         marginTop: '20px'
     };
-
+    
     return (
         <div style={containerStyle}>
             <form onSubmit={handleSubmit} style={formStyle}>
                 <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Name" required style={inputStyle} />
-                <input type="date" value={tripDate} onChange={e => setTripDate(e.target.value)} placeholder="Trip Date" required style={inputStyle} />
+                <input
+                    type="date"
+                    id="tripDate"
+                    value={tripDate}
+                    onChange={e => setTripDate(e.target.value)}
+                    placeholder="Trip Date"
+                    required
+                    style={inputStyle}
+                />
                 <input type="text" value={destination} onChange={e => setDestination(e.target.value)} placeholder="Destination" required style={inputStyle} />
                 <input type="time" value={meetingTime} onChange={e => setMeetingTime(e.target.value)} placeholder="Meeting Time" required style={inputStyle} />
                 <input type="text" value={meetupLocation} onChange={e => setMeetupLocation(e.target.value)} placeholder="Meet-up Location" required style={inputStyle} />
