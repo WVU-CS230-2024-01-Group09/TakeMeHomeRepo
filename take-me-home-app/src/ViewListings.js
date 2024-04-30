@@ -79,11 +79,11 @@ function ViewListings() {
                     <div style={listStyle}>
                         {listings.map(listing => (
                             <div key={listing.id} style={listItemStyle}>
-                                <p><strong>Name:</strong> {listing.name}</p>
-                                <p><strong>Date:</strong> {listing.tripDate}</p>
-                                <p><strong>Location:</strong> {listing.destination}</p>
+                                <p><strong>Name:</strong> {listing?.name}</p>
+                                <p><strong>Date:</strong> {listing?.tripDate?.toDate().toLocaleDateString()}</p>
+                                <p><strong>Location:</strong> {listing?.destination}</p>
                                 <button onClick={() => handleViewListing(listing)} style={viewButtonStyle}>View</button>
-                                {user && listing.createdBy === user.uid && (
+                                {user && listing?.createdBy === user.uid && (
                                     <button onClick={() => handleEditListing(listing)} style={editButtonStyle}>Edit</button>
                                 )}
                             </div>
@@ -100,14 +100,15 @@ function ViewListings() {
             {selectedListing && (
                 <div style={popupStyle}>
                     <button onClick={handleClosePopup} style={closeButtonStyle}>X</button>
-                    <h3>{selectedListing.name}</h3>
-                    <p><strong>Date:</strong> {selectedListing.tripDate}</p>
-                    <p><strong>Location:</strong> {selectedListing.destination}</p>
-                    <p><strong>Time:</strong> {selectedListing.meetingTime}</p>
-                    <p><strong>Seats:</strong> {selectedListing.seats}</p>
-                    <p><strong>Smoking Allowed:</strong> {selectedListing.smoking}</p>
-                    <p><strong>Car Type:</strong> {selectedListing.carType}</p>
-                    <p><strong>Notes:</strong> {selectedListing.notes}</p>
+                    <h3>{selectedListing?.name}</h3>
+                    <p><strong>Date:</strong> {selectedListing?.tripDate?.toDate().toLocaleDateString()}</p>
+                    <p><strong>Location:</strong> {selectedListing?.destination}</p>
+                    <p><strong>Time:</strong> {selectedListing?.meetingTime}</p>
+                    <p><strong>Seats:</strong> {selectedListing?.seats}</p>
+                    <p><strong>Smoking Allowed:</strong> {selectedListing?.smoking}</p>
+                    <p><strong>Car Type:</strong> {selectedListing?.carType}</p>
+                    <p><strong>Notes:</strong> {selectedListing?.notes}</p>
+                    <p><strong>Contact Email:</strong> {selectedListing?.creatorEmail}</p>
                 </div>
             )}
             {isEditing && editListing && (

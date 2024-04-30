@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from './firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
+import { useAuth } from './useAuth';
 
 function AddListing() {
+    const { user } = useAuth();
     const navigate = useNavigate();
     const [name, setName] = useState('');
     const [tripDate, setTripDate] = useState('');
@@ -58,7 +60,8 @@ function AddListing() {
             seats,
             smoking,
             carType,
-            notes
+            notes,
+            creatorEmail: user.email,
         };
 
         try {
