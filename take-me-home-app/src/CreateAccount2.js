@@ -91,7 +91,8 @@ function CreateAccount2() {
                     type="tel"
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
-                    placeholder="Phone Number (optional)"
+                    placeholder="Phone Number"
+                    required
                     style={inputStyle}  // Apply inline styles here
                 />
                 <h4>Password must be at least 6 characters long.</h4>
