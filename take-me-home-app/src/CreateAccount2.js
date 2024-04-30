@@ -11,6 +11,7 @@ function CreateAccount2() {
     const [name, setName] = useState('');
     const [preferences, setPreferences] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+    const [studentID, setStudentID] = useState('');
     const navigate = useNavigate();
     const auth = getAuth();
 
@@ -32,6 +33,7 @@ function CreateAccount2() {
                     name: name,
                     preferences: preferences,
                     phoneNumber: phoneNumber,
+                    studentID: studentID,
                   });
                 // Redirect to the homepage upon successful account creation
                 navigate('/home');
@@ -64,7 +66,7 @@ function CreateAccount2() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email (must be a WVU email)"
                     required
-                    style={inputStyle}  // Apply inline styles here
+                    style={inputStyle}
                 />
                 <input
                     type="password"
@@ -72,20 +74,20 @@ function CreateAccount2() {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                     required
-                    style={inputStyle}  // Apply inline styles here
+                    style={inputStyle}
                 />
                 <input
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Name"
-                    style={inputStyle}  // Apply inline styles here
+                    style={inputStyle}
                 />
                 <textarea
                     value={preferences}
                     onChange={(e) => setPreferences(e.target.value)}
                     placeholder="Preferences (optional)"
-                    style={inputStyle}  // Apply inline styles here
+                    style={inputStyle}
                 ></textarea>
                 <input
                     type="tel"
@@ -93,7 +95,15 @@ function CreateAccount2() {
                     onChange={(e) => setPhoneNumber(e.target.value)}
                     placeholder="Phone Number"
                     required
-                    style={inputStyle}  // Apply inline styles here
+                    style={inputStyle}
+                />
+                <input
+                    type="number"
+                    value={studentID}
+                    onChange={(e) => setStudentID(e.target.value)}
+                    placeholder="Student ID"
+                    required
+                    style={inputStyle}
                 />
                 <h4>Password must be at least 6 characters long.</h4>
                 <button type="submit">Create Account</button>

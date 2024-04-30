@@ -16,6 +16,7 @@ function AccountPage() {
   const [editedName, setEditedName] = useState('');
   const [editedPreferences, setEditedPreferences] = useState('');
   const [editedPhoneNumber, setEditedPhoneNumber] = useState('');
+  const [editedStudentID, setEditedStudentID] = useState('');
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -36,6 +37,7 @@ function AccountPage() {
       setEditedName(userData.name || '');
       setEditedPreferences(userData.preferences || '');
       setEditedPhoneNumber(userData.phoneNumber || '');
+      setEditedStudentID(userData.studentID || '');
     }
   }, [userData]);
 
@@ -55,6 +57,7 @@ function AccountPage() {
         name: editedName,
         preferences: editedPreferences,
         phoneNumber: editedPhoneNumber,
+        studentID: editedStudentID,
       });
       setEditing(false);
     } catch (error) {
@@ -88,6 +91,12 @@ function AccountPage() {
                   onChange={(e) => setEditedPhoneNumber(e.target.value)}
                   placeholder="Phone Number"
                 />
+                <input
+                  type="number"
+                  value={editedStudentID}
+                  onChange={(e) => setEditedStudentID(e.target.value)}
+                  placeholder="Student ID"
+                />
                 <button onClick={handleSave}>Save</button>
               </>
             ) : (
@@ -95,6 +104,7 @@ function AccountPage() {
                 <p>Name: {userData.name}</p>
                 <p>Preferences: {userData.preferences}</p>
                 <p>Phone Number: {userData.phoneNumber}</p>
+                <p>Student ID: {userData.studentID}</p>
                 <button onClick={() => setEditing(true)}>Edit</button>
               </>
             )}
