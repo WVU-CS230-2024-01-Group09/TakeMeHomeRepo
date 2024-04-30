@@ -13,9 +13,6 @@ function HomePage() {
                 <Link to="/add-listing" style={{ textDecoration: 'none' }}>
                     <button>Add Listing</button>
                 </Link>
-                <Link to="/view-map" style={{ textDecoration: 'none' }}>
-                    <button>View Map</button>
-                </Link>
                 <Link to="/view-listings" style={{ textDecoration: 'none' }}> {/* Add the new button for viewing listings */}
                     <button>View Listings</button>
                 </Link>
