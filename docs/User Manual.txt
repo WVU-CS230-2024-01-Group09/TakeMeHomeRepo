@@ -1,0 +1,53 @@
+﻿Welcome to the TakeMeHome app, a rideshare service designed for students at West Virginia University to offer and find rides home during breaks.
+
+
+1. Account Creation and Login
+   - To create an account, click on the "Sign up" link on the login page.
+   - Enter your WVU email address (must include "@mix.wvu"), password, name, preferences (optional), phone number, and student ID.
+   - After successful account creation, you will be redirected to the homepage.
+   - To log in, enter your email and password on the login page.
+   - If you forget your password, click on the "Forgot Password?" link and enter your email to receive a password reset link.
+
+
+2. Homepage
+   - After logging in, you will be directed to the homepage.
+   - The homepage provides a brief description of the TakeMeHome app.
+   - From the homepage, you can navigate to other sections of the app.
+
+
+3. Adding a Listing
+   - To add a new ride offer, click on the "Add Listing" button on the homepage.
+   - Fill in the required information, including your name, trip date (must be a future date), destination, meeting time, meetup location, number of seats available, smoking preference, car type, and any additional notes.
+   - Click the "Publish" button to submit your ride offer.
+   - After successfully adding a listing, you will be redirected to the View Listings page.
+
+
+4. Viewing Listings
+   - To view available ride offers, click on the "View Listings" button on the homepage.
+   - The View Listings page displays a list of all the ride offers.
+   - Each listing shows the name, date, and location of the ride offer.
+   - To view more details about a specific listing, click on the "View" button next to it.
+   - In the detailed view, you can see additional information such as meeting time, number of seats, smoking preference, car type, notes, and the contact email of the listing creator.
+   - To close the detailed view, click on the "X" button.
+
+
+5. Account Page
+   - To view and edit your account information, click on the "View Account" button on the homepage.
+   - On the Account Page, you can see your email, name, preferences, phone number, and student ID.
+   - To edit your account information, click on the "Edit" button.
+   - Modify the desired fields and click on the "Save" button to update your account details.
+   - To log out of your account, click on the "Log Out" button on the Account Page.
+
+
+6. Error Handling
+   - If you encounter any errors or issues while using the app, appropriate error messages will be displayed.
+   - If an error occurs during account creation, login, or adding a listing, an alert message will be shown indicating the specific error.
+
+
+Please note that the TakeMeHome app is designed for use by West Virginia University students only. Ensure that you use your valid WVU email address when creating an account.
+
+
+If you have any further questions or need assistance, please refer to the app's documentation or contact the app's developers.
+
+
+Enjoy using the TakeMeHome app and have a safe ride home!
