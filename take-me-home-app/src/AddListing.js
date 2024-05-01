@@ -5,8 +5,11 @@ import { collection, addDoc } from 'firebase/firestore';
 import { useAuth } from './useAuth';
 
 function AddListing() {
+    // Access user object from useAuth hook
     const { user } = useAuth();
+    // Hook to navigate between routes
     const navigate = useNavigate();
+    // State variables to manage form inputs
     const [name, setName] = useState('');
     const [tripDate, setTripDate] = useState('');
     const [destination, setDestination] = useState('');
@@ -17,40 +20,45 @@ function AddListing() {
     const [carType, setCarType] = useState('');
     const [notes, setNotes] = useState('');
 
+    // Set minimum date for tripDate input on component mount
     useEffect(() => {
         setMinDate();
     }, []);
 
+    // Function to set the minimum date for tripDate input
     const setMinDate = () => {
         var today = new Date();
-        today.setDate(today.getDate()); // Today's date
+        today.setDate(today.getDate()); 
         var dd = today.getDate();
-        var mm = today.getMonth() + 1; // January is 0!
+        var mm = today.getMonth() + 1; 
         var yyyy = today.getFullYear();
         if (dd < 10) {
-          dd = '0' + dd;
+            dd = '0' + dd;
         }
         if (mm < 10) {
-          mm = '0' + mm;
+            mm = '0' + mm;
         }
         today = yyyy + '-' + mm + '-' + dd;
+        // Set the min attribute of tripDate input
         document.getElementById("tripDate").setAttribute("min", today);
     };
 
+    // Function to handle form submission
     const handleSubmit = async (event) => {
         event.preventDefault();
         var selectedDate = document.getElementById("tripDate").value;
         var today = new Date();
         today.setHours(0, 0, 0, 0); // Set hours to 0 for accurate comparison
         var tripDate = new Date(selectedDate);
-    
+
         // Check if the selected date is in the future
         if (tripDate <= today) {
-          alert("Please select a date in the future.");
-          return;
+            alert("Please select a date in the future.");
+            return;
         }
 
         console.log("Form submitted");
+        // Construct the offer object
         const offer = {
             name,
             tripDate,
@@ -65,8 +73,10 @@ function AddListing() {
         };
 
         try {
+            // Add the offer to Firestore collection
             await addDoc(collection(db, "listings"), offer);
             alert('Listing added successfully');
+            // Navigate to view-listings route
             navigate('/view-listings');
         } catch (error) {
             console.error("Error adding listing: ", error);
@@ -74,6 +84,7 @@ function AddListing() {
         }
     };
 
+    // Inline styles 
     const containerStyle = {
         fontFamily: 'Times New Roman',
         display: 'flex',
@@ -127,7 +138,8 @@ function AddListing() {
         gridColumn: '1 / span 2',
         marginTop: '20px'
     };
-    
+
+    // JSX rendering
     return (
         <div style={containerStyle}>
             <form onSubmit={handleSubmit} style={formStyle}>

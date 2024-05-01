@@ -5,12 +5,15 @@ import { collection, getDocs, deleteDoc, doc, updateDoc } from 'firebase/firesto
 import { useAuth } from './useAuth'; // Import useAuth hook
 
 function ViewListings() {
-    const { user } = useAuth(); // Access user object from useAuth hook
+    // Access user object from useAuth hook
+    const { user } = useAuth();
+    // State variables to manage listings and editing
     const [listings, setListings] = useState([]);
     const [selectedListing, setSelectedListing] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
     const [editListing, setEditListing] = useState(null);
 
+    // Fetch listings from Firestore on component mount
     useEffect(() => {
         const fetchListings = async () => {
             const listingsCollection = collection(db, "listings");
@@ -25,14 +28,17 @@ function ViewListings() {
         fetchListings();
     }, []);
 
+    // Function to handle viewing a listing
     const handleViewListing = (listing) => {
         setSelectedListing(listing);
     };
 
+    // Function to close the selected listing popup
     const handleClosePopup = () => {
         setSelectedListing(null);
     };
 
+    // Function to handle editing a listing
     const handleEditListing = (listing) => {
         // Check if the logged-in user created the listing
         if (user && listing.createdBy === user.uid) {
@@ -40,17 +46,17 @@ function ViewListings() {
             setEditListing(listing);
             setIsEditing(true);
         } else {
-            // If the logged-in user did not create the listing, display an error message or handle it as desired
+            // If the logged-in user did not create the listing, display an error message
             alert('You are not authorized to edit this listing.');
         }
     };
 
-
+    // Function to handle saving the edited listing
     const handleSaveListing = async (event) => {
         event.preventDefault();
         try {
             const listingRef = doc(db, 'listings', editListing.id);
-            await updateDoc(listingRef, editListing); // Update listing data in Firestore
+            await updateDoc(listingRef, editListing); 
             alert('Listing updated successfully');
             setIsEditing(false);
             setEditListing(null);
@@ -60,17 +66,19 @@ function ViewListings() {
         }
     };
 
+    // Function to handle deleting a listing
     const handleDeleteListing = async (listing) => {
         try {
             await deleteDoc(doc(db, "listings", listing.id));
             alert('Listing deleted successfully');
-            setSelectedListing(null); // Clear the selected listing after deletion
+            setSelectedListing(null); 
         } catch (error) {
             console.error("Error deleting listing: ", error);
             alert('Failed to delete listing: ' + error.message);
         }
     };
 
+    // JSX rendering
     return (
         <div style={containerStyle}>
             <h2 style={{ color: 'goldenrod', fontSize: '45px', textAlign: 'center' }}>LISTING VIEW</h2>
@@ -126,8 +134,7 @@ function ViewListings() {
     );
 }
 
-
-
+// Inline styles
 const containerStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -136,7 +143,7 @@ const containerStyle = {
     height: '100%',
     padding: '40px',
     color: 'rgb(179, 171, 204)',
-    position: 'relative', // Ensure relative positioning
+    position: 'relative', 
     backgroundImage: 'url(https://wallpapercave.com/wp/wp2912980.jpg)',
 };
 
@@ -145,20 +152,18 @@ const listContainerStyle = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    overflowY: 'auto', // Enable vertical scrolling
-    maxHeight: 'calc(100vh - 100px)', // Adjust maximum height
-    
+    overflowY: 'auto',
+    maxHeight: 'calc(100vh - 100px)', 
 };
 
 const listItemStyle = {
-    width: 'calc(25%)', 
+    width: 'calc(25%)',
     margin: '20px',
     padding: '20px',
     backgroundColor: '#00112b',
     borderRadius: '5px',
     flexDirection: 'column',
     color: '#fffc4a',
-    
 };
 
 const viewButtonStyle = {
@@ -173,11 +178,11 @@ const viewButtonStyle = {
 
 const editButtonStyle = {
     padding: '8px 12px',
-    backgroundColor: '#ff0000', // Red background for edit button
+    backgroundColor: '#ff0000', 
     borderRadius: '3px',
     cursor: 'pointer',
     border: 'none',
-    color: 'white', // White font color
+    color: 'white', 
     marginTop: '10px',
 };
 
@@ -255,7 +260,5 @@ const deleteButtonStyle = {
     cursor: 'pointer',
     marginTop: '20px'
 };
-
-
 
 export default ViewListings;
